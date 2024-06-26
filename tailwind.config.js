@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      sans: ['sans'], // Set sans-serif as the default font family
+    },
   },
   plugins: [],
 }
