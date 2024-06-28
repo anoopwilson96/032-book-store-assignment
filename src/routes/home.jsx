@@ -12,8 +12,10 @@ export async function loader() {
     const authors = await response.json()
 
     const bookResponse = await fetch('http://localhost:3000/books')
+
     const books = await bookResponse.json()
-    const slicedBooks = books.slice(0, 15); // Get the first 15 elements
+    books.sort(() => Math.random() - 0.5);
+    const slicedBooks = books.slice(0, 8); // Get the first 15 elements
   
     return { authors,slicedBooks}
   } 
@@ -30,7 +32,7 @@ export default function Home() {
 
 <ImageSlider/>
 
-<section className='Home-Popular-Authors-Section'>
+<section className='Home-Popular-Authors-Section container max-w-7xl mx-auto '>
 
 <div>
       <h1 className='mt-5 mb-10 font-bold text-4xl flex justify-center'>
@@ -39,14 +41,14 @@ export default function Home() {
 </div>
 
 
-<div className='grid grid-cols-1 md:grid-cols-3 gap-2  justify-center items-center mx-auto '>
+<div className='grid grid-cols-1 md:grid-cols-3 gap-5  justify-center items-center mx-auto '>
 
     {
     authors.map((author)=>(
 
-    <div key={author._id} className='mx-auto border border-red-600 rounded-3xl shadow-slate-400 p-5 flex flex-col  items-center text-wrap  max-w-3xl' >
-      <img className='h-10 rounded-full' src={author.image} alt="" />
-      <h3 className='mt-5 mb-5 text-2xl font-semibold'>{author.authorName}</h3>
+    <div key={author._id} className='mx-auto border border-red-600 rounded-3xl shadow-slate-400 p-5 flex flex-col  items-center text-wrap  max-w-2xl max-h-96' >
+      <img className='h-12 rounded-full' src={author.image} alt="" />
+      <Link to={`/`}><h3 className='mt-5 mb-5 text-2xl p-1 font-semibold'>{author.authorName}</h3> </Link>
       <span className='text-lg'>{author.details}</span>
     </div>
 
@@ -65,7 +67,7 @@ export default function Home() {
 </div>
 
   
-<div className='grid grid-cols-1 md:grid-cols-3 gap-5 mx-auto  '>
+<div className='grid grid-cols-2 md:grid-cols-3 gap-5 mx-auto  '>
   {slicedBooks.map((book)=>(
     <div key={book._id} className='flex justify-center '>
      <div className=' border border-red-600 rounded-3xl shadow-slate-400 p-5 flex flex-col items-center justify-center text-wrap max-w-56' >
