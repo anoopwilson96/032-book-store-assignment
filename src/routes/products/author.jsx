@@ -2,6 +2,9 @@ import React from 'react'
 import { Outlet, Link } from "react-router-dom";
 
 
+
+
+
 export default function Author() {
   return (
     <>
@@ -10,6 +13,7 @@ export default function Author() {
         Books by 
       </h1>
     </div>
+    
     </>
   )
 }

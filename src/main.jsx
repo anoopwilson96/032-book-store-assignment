@@ -11,7 +11,7 @@ import ErrorPage from "./error-page";
 import Home, {loader as homeLoader} from './routes/home.jsx';
 import Authors, {loader as authorsLoader} from './routes/products/authors.jsx';
 import Books,{ loader as booksLoader } from './routes/products/books.jsx';
-import Book from './routes/products/book.jsx';
+import Book, {loader as bookLoader} from './routes/products/book.jsx';
 import Author from './routes/products/author.jsx';
 
 const router = createBrowserRouter([
@@ -42,6 +42,7 @@ const router = createBrowserRouter([
       {
         path: '/books/:bookId',
         element: <Book/>,
+        loader: bookLoader
         
       }
 

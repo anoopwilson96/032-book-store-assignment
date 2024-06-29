@@ -1,12 +1,21 @@
 import React from 'react'
+import { useLoaderData } from 'react-router-dom'
 
 
+export async function loader(params) {
+  
+  const response = await fetch(`http://localhost:3000/books/${bookId}`)
+  const book = await response.json()
+  return { book}
+} 
 
 
 
 
 
 export default function Book() {
+  const {book} = useLoaderData();
+  console.log(book)
   return (
     <>
 
@@ -15,7 +24,7 @@ export default function Book() {
 
 
     <div className='  flex flex-row items-center justify-center text-wrap  gap-5' >
-      <img className='' src="https://d2g9wbak88g7ch.cloudfront.net/productimages/images200/574/9780143028574.jpg" alt="" />
+      <img className='' src='' alt="" />
       
       <div className='flex flex-col gap-5'>
            <h3 className='mt-5  text-2xl font-semibold'>Books Name </h3>
