@@ -12,17 +12,14 @@ export async function loader() {
     const response = await fetch('http://localhost:3000/authors')
     const authors = await response.json()
 
-    const bookResponse = await fetch('http://localhost:3000/books')
+    const popularBookResponse = await fetch('http://localhost:3000/books')
 
-    const books = await bookResponse.json()
-    books.sort(() => Math.random() - 0.5); // books array is shuffled
-    const slicedBooks = books.slice(0, 8); // Get the first 8 random elements(books)
+    const popularBooks = await popularBookResponse.json()
+    popularBooks.sort(() => Math.random() - 0.5); // books array is shuffled
+    const slicedBooks = popularBooks.slice(0, 8); // Get the first 8 random elements(books)
   
     return { authors,slicedBooks}
   } 
-
-
-
 
 
 
@@ -49,7 +46,7 @@ export default function Home() {
 
     <div key={author._id} className='mx-auto border border-red-600 rounded-3xl shadow-slate-400 p-5 flex flex-col  items-center text-wrap  max-w-2xl max-h-96' >
       <img className='h-12 rounded-full' src={author.image} alt="" />
-      <Link to={`/authors/${author._id}}`}><h3 className='mt-5 mb-5 text-2xl p-1 font-semibold'>{author.authorName}</h3> </Link>
+      <Link to={`/authors/${author._id}`}><h3 className='mt-5 mb-5 text-2xl p-1 font-semibold'>{author.authorName}</h3> </Link>
       <span className='text-lg'>{author.details}</span>
     </div>
 
@@ -69,14 +66,16 @@ export default function Home() {
 
   
 <div className='grid grid-cols-2 md:grid-cols-3 gap-5 mx-auto  '>
-  {slicedBooks.map((book)=>(
-    <div key={book._id} className='flex justify-center '>
+  {slicedBooks.map((popularBook)=>(
+    <div key={popularBook._id} className='flex justify-center '>
      <div className=' border border-red-600 rounded-3xl shadow-slate-400 p-5 flex flex-col items-center justify-center text-wrap max-w-56' >
-        <img className='' src={book.bookImage} alt="" />
-        <Link to={`/books/${book._id}`}><h3 className='mt-5  text-2xl font-semibold'>{book.bookName}</h3> </Link>
         
-        <h3 className=' mb-2 text-lg text-blue-800 '>{book.bookAuthor}</h3>
-        <span className='text-lg'> Price: $ {book.price} </span>
+        <Link to={`/books/${popularBook._id}`}>
+        <img className='' src={popularBook.bookImage} alt="" />
+        <h3 className='mt-5  text-2xl font-semibold'>{popularBook.bookName}</h3> </Link>
+        
+        <h3 className=' mb-2 text-lg text-blue-800 '>{popularBook.bookAuthor}</h3>
+        <span className='text-lg'> Price: $ {popularBook.price} </span>
         <div className='flex flex-col'>
           <button className=' mt-3 mb-2 bg-red-500 text-white px-2 rounded-md'>Add to Cart</button>
           <button className=' mt-3 mb-2 bg-slate-400  text-white px-2 rounded-md'>Mark ❤️️</button>
@@ -85,11 +84,6 @@ export default function Home() {
    </div>   
       ))}
 </div>
-
-
-<Book/>
-
-
 
 </section>
 

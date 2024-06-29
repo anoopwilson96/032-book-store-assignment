@@ -12,7 +12,7 @@ import Home, {loader as homeLoader} from './routes/home.jsx';
 import Authors, {loader as authorsLoader} from './routes/products/authors.jsx';
 import Books,{ loader as booksLoader } from './routes/products/books.jsx';
 import Book, {loader as bookLoader} from './routes/products/book.jsx';
-import Author from './routes/products/author.jsx';
+import Author,{loader as authorLoader} from './routes/products/author.jsx';
 
 const router = createBrowserRouter([
   {
@@ -32,7 +32,8 @@ const router = createBrowserRouter([
       },
       {
         path:'/authors/:authorId',
-        element: <Author/>
+        element: <Author/>,
+        loader: authorLoader
       },
       {
         path: '/books',

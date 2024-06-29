@@ -1,14 +1,16 @@
 import React from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { Link,useLoaderData } from 'react-router-dom'
 
 
-export async function loader(params) {
+
   
-  const response = await fetch(`http://localhost:3000/books/${bookId}`)
-  const book = await response.json()
-  return { book}
-} 
+  export async function loader({params}) {
 
+    const response = await fetch(`http://localhost:3000/books/${params.bookId}`);
+    const book = await response.json();
+    return { book };
+  }
+  
 
 
 
@@ -24,14 +26,14 @@ export default function Book() {
 
 
     <div className='  flex flex-row items-center justify-center text-wrap  gap-5' >
-      <img className='' src='' alt="" />
+      <img className='' src={book.bookImage} alt="" />
       
       <div className='flex flex-col gap-5'>
-           <h3 className='mt-5  text-2xl font-semibold'>Books Name </h3>
-           <h3 className=' mb-2 text-lg '>Author's Name </h3>
-           <span className='text-lg'> Price: $ 100 </span>
+           <h3 className='mt-5  text-2xl font-semibold'>{book.bookName}</h3>
+           <h3 className=' mb-2 text-lg '>{book.bookAuthor}</h3>
+           <span className='text-lg'> Price: ${book.price}</span>
 
-          <span className='text-lg'>Arundhati Roy is an Indian writer, best known for her book The God of Small Things (1997), which won the Man Booker Prize for Fiction in 1997. She was born in Shillong, Meghalaya, India</span>
+          <span className='text-lg'>{book.description}</span>
       </div>
 
     </div>
