@@ -2,9 +2,9 @@ import React from 'react'
 import { Outlet, Link } from "react-router-dom";
 import {useLoaderData } from "react-router-dom";
 
-export async function loader() {
+export async function loader(params) {
   
-  const response = await fetch('http://localhost:3000/books')
+  const response = await fetch(`http://localhost:3000/books`)
   const books = await response.json()
   return { books}
 } 
@@ -25,12 +25,12 @@ export default function Books() {
 
 
 
-<div className='grid grid-cols-1 md:grid-cols-3 gap-5 mx-auto  '>
+<div className='grid grid-cols-2 md:grid-cols-3 gap-5 mx-auto'>
   {books.map((book)=>(
     <div key={book._id} className='flex justify-center '>
      <div className=' border border-red-600 rounded-3xl shadow-slate-400 p-5 flex flex-col items-center justify-center text-wrap max-w-56' >
         <img className='' src={book.bookImage} alt="" />
-        <h3 className='mt-5  text-2xl font-semibold'>{book.bookName}</h3>
+        <h3 className='mt-5  text-2xl mx-2 font-semibold'>{book.bookName}</h3>
         <h3 className=' mb-2 text-lg text-blue-800 '>{book.bookAuthor}</h3>
         <span className='text-lg'> Price: $ {book.price} </span>
         <div className='flex flex-col'>

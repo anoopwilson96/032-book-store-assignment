@@ -9,9 +9,10 @@ import './index.css'
 import Root from "./routes/root";
 import ErrorPage from "./error-page";
 import Home, {loader as homeLoader} from './routes/home.jsx';
-import Authors, {loader as authorsLoader} from './routes/authors.jsx';
-import Books,{ loader as booksLoader } from './routes/books.jsx';
-import Book from './routes/book.jsx';
+import Authors, {loader as authorsLoader} from './routes/products/authors.jsx';
+import Books,{ loader as booksLoader } from './routes/products/books.jsx';
+import Book from './routes/products/book.jsx';
+import Author from './routes/products/author.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,13 +31,18 @@ const router = createBrowserRouter([
         loader: authorsLoader
       },
       {
+        path:'/authors/:authorId',
+        element: <Author/>
+      },
+      {
         path: '/books',
         element: <Books/>,
         loader: booksLoader
       },
       {
-        path: '/book',
-        element: <Book/>
+        path: '/books/:bookId',
+        element: <Book/>,
+        
       }
 
     ]
