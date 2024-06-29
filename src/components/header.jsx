@@ -9,7 +9,7 @@ export default function Header() {
 
         <section className="headerOne">
           <Link to={'/'}>
-          <img className="  max-h-48 mx-auto" src="./logo.png" alt="" />
+          <img className="  max-h-48 mx-auto" src="../logo.png" alt="" />
           </Link>
 
         </section>
