@@ -2,7 +2,7 @@ import React from 'react'
 import { Outlet, Link } from "react-router-dom";
 import {useLoaderData } from "react-router-dom";
 
-export async function loader(params) {
+export async function loader() {
   
   const response = await fetch(`http://localhost:3000/books`)
   const books = await response.json()
