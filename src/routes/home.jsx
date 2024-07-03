@@ -39,7 +39,7 @@ export default function Home() {
 </div>
 
 
-<div className='grid grid-cols-1 md:grid-cols-3 gap-5  justify-center items-center mx-auto '>
+<div className='grid grid-cols-1  gap-5  justify-center items-center mx-auto '>
 
     {
     authors.map((author)=>(
