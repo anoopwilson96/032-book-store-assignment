@@ -13,6 +13,7 @@ import Authors, {loader as authorsLoader} from './routes/products/authors.jsx';
 import Books,{ loader as booksLoader } from './routes/products/books.jsx';
 import Book, {loader as bookLoader} from './routes/products/book.jsx';
 import Author,{loader as authorLoader} from './routes/products/author.jsx';
+import Login from './routes/login.jsx';
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,11 @@ const router = createBrowserRouter([
         element: <Book/>,
         loader: bookLoader
         
+      },
+      {
+        path: '/login',
+        element:<Login/>,
+        
       }
 
     ]
@@ -57,3 +63,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <RouterProvider router={router} />
   </React.StrictMode>,
 )
+
+
+
