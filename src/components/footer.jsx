@@ -3,7 +3,7 @@ import React from 'react'
 export default function Footer() {
   return (
     <>
-    <footer className=" pt-10 mt-10 ">
+    <footer className=" pt-10 mt-10">
   <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3  ">
     <div className="footerOne ">
       <ul className=" flex flex-col align-middle items-center justify-start gap-2">
