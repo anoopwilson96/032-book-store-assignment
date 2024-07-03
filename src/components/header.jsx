@@ -21,6 +21,32 @@ export default function Header() {
           
           </div>
         </section>
+        <div>
+        <ul className=' font- mx-1 mt-5 flex gap-1 flex-row  justify-evenly'>
+
+          <Link to={'/'} className='' >
+          <li className="hover:text-red-600 text-lg ">Home</li>
+          </Link>
+          <Link to={'/books'} className='' >
+          <li className="hover:text-red-600 text-lg ">Books</li>
+          </Link>
+          <Link to={'/authors'} className='' >
+          <li className="hover:text-red-600 text-lg ">Authors</li>
+          </Link>
+          <Link to={'/login'} className='' >
+          <li className="hover:text-red-600 text-lg ">Log In</li>
+          </Link>
+          <Link to={'/'} className='' >
+          <li className="hover:text-red-600 text-lg ">Logout</li>
+          </Link>
+          <Link>
+          <li className="hover:text-red-600 text-lg ">My Cart</li>
+          </Link>
+        
+        </ul>
+
+
+        </div>
 
     </header>
     </>
