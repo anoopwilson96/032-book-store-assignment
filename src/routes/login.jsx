@@ -1,30 +1,70 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 export default function Login(props) {
-  const [name,setName] = useState('name')
-  const [email,setEmail]=useState('email')
-  const [password,setPassword]=useState('password')
+// navigate hook to successfully navigate page to home path after successful login
+
+const navigate = useNavigate()
+
+// //Data declarations for Sign Up function
+
+const [signupName, setSignupName] = useState('');
+const [signupEmail, setSignupEmail] = useState('');
+const [signupPassword, setSignupPassword] = useState('');
+
+//   // function to handle Sign Up
 
   function handleSignup(event) {
+    
     event.preventDefault()
     // console.log(name)
     // console.log(email)
     const data = {
-      name : name ,
-      email : email ,
-      password: password
+      name: signupName,
+      email: signupEmail,
+      password: signupPassword,
     }
 
-    axios.post('http://localhost:3000/users', data)
+    axios.post(`${import.meta.env.VITE_API_URL}/users`, data)
     .then((response) => {
       console.log('Signed up successfully:', response.data); 
+      alert('Signed up successfully. Please LOGIN to continue')
     })
     .catch((error) => {
       console.error('Error signing up:', error);
     });
     
   }
+//declaration to get Login data
+const [loginEmail, setLoginEmail] = useState('');
+const [loginPassword, setLoginPassword] = useState('');
+
+//function to handle Login
+function handleLogin(event) {
+  event.preventDefault()
+
+
+  const data = {
+    email: loginEmail,
+    password: loginPassword,
+  }
+
+  axios.post(`${import.meta.env.VITE_API_URL}/users`, data, {withCredentials:true})
+  //don't forget to add {withCredentials:true} so that token is exchanged to browser
+  // add cors()on Back End
+  .then((response) => {
+    console.log('Signed up successfully:', response.data); 
+    navigate('/')
+    alert('Signed up successfully: Please Login to continue')
+    
+  })
+  .catch((error) => {
+    console.error('Error signing up:', error);
+  });
+  
+}
+
 
   return (
   <>
@@ -36,11 +76,14 @@ export default function Login(props) {
   </div>
 
   <div className='flex justify-center'>
-    <form className='flex flex-col '>
+    <form 
+    onSubmit={handleLogin}
+    className='flex flex-col '>
       <label htmlFor="login-email">
         Email
       </label>
       <input
+      onChange={(event) => setLoginEmail(event.target.value)}
         className="border border-red-600 w-full outline-none p-1"
         type="email"
         id="login-email"
@@ -49,12 +92,13 @@ export default function Login(props) {
         Password
       </label>
       <input
+        onChange={(event) => setLoginPassword(event.target.value)}
         className="border border-red-600 w-full outline-none p-1"
         type="password"
         id="login-password"
       />
    <div className='flex flex-col align-middle items-center justify-center mt-8 '>
-     <button className='mb-5 px-2 rounded text-white bg-red-500 w-fit '>
+     <button className='mb-5 px-2 rounded text-white bg-red-500 w-fit ' id="submitButton">
        Submit
      </button>
      <h1 className='mt-1 mb-5 font-bold  flex justify-center'>
@@ -87,7 +131,7 @@ export default function Login(props) {
         Name
       </label>
       <input
-        onChange={(event) => setName(event.target.value)}
+        onChange={(event) => setSignupName(event.target.value)}
         className="w-full border border-red-600 outline-none p-1"
         type="text"
         id="signup-name"
@@ -96,7 +140,7 @@ export default function Login(props) {
         Email
       </label>
       <input
-        onChange={(event) => setEmail(event.target.value)}
+        onChange={(event) => setSignupEmail(event.target.value)}
         className="border border-red-600 w-full outline-none p-1"
         type="email"
         id="signup-email"
@@ -105,7 +149,7 @@ export default function Login(props) {
         Password
       </label>
       <input
-        onChange={(event)=>setPassword(event.target.value)}
+        onChange={(event)=>setSignupPassword(event.target.value)}
         className="border border-red-600 w-full outline-none p-1"
         type="password"
         id="signup-password"
