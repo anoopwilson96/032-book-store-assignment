@@ -3,7 +3,7 @@ import ImageSlider from '../components/imageSlider'
 import { Outlet, Link } from "react-router-dom";
 import {useLoaderData } from "react-router-dom";
 
-
+//fetch address are changed based on .env 
 
 export async function loader() {
   
