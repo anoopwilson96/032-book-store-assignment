@@ -1,18 +1,16 @@
 import React from 'react'
 import ImageSlider from '../components/imageSlider'
-import Authors from './products/authors'
 import { Outlet, Link } from "react-router-dom";
-import Books from './products/books';
 import {useLoaderData } from "react-router-dom";
-import Book from './products/book';
+
 
 
 export async function loader() {
   
-    const response = await fetch('http://localhost:3000/authors')
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/authors`)
     const authors = await response.json()
 
-    const popularBookResponse = await fetch('http://localhost:3000/books')
+    const popularBookResponse = await fetch(`${import.meta.env.VITE_API_URL}/books`)
 
     const popularBooks = await popularBookResponse.json()
     popularBooks.sort(() => Math.random() - 0.5); // books array is shuffled
