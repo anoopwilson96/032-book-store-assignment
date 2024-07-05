@@ -3,11 +3,11 @@ import { Outlet, Link, useLoaderData } from "react-router-dom";
 
 export async function loader({params}) {
   
-  const response = await fetch(`http://localhost:3000/books/?authorId=${params.authorId}`)
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/books/?authorId=${params.authorId}`)
   const books = await response.json()
 
 
-  const authorResponse = await fetch(`http://localhost:3000/authors/${params.authorId}`)
+  const authorResponse = await fetch(`${import.meta.env.VITE_API_URL}/authors/${params.authorId}`)
   const authors = await authorResponse.json()
   return { books,authors}
 } 
