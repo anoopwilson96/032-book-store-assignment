@@ -4,7 +4,7 @@ import {useLoaderData } from "react-router-dom";
 
 export async function loader() {
   
-    const response = await fetch('http://localhost:3000/authors')
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/authors`)
     const authors = await response.json()
     return { authors}
   } 
