@@ -6,7 +6,7 @@ import { Link,useLoaderData } from 'react-router-dom'
   
   export async function loader({params}) {
 
-    const response = await fetch(`http://localhost:3000/books/${params.bookId}`);
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/books/${params.bookId}`);
     const book = await response.json();
     return { book };
   }
