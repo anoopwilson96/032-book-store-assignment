@@ -34,7 +34,7 @@ export default function Header() {
           <li className="hover:text-red-600 text-lg ">Authors</li>
           </Link>
           <Link to={'/login'} className='' >
-          <li className="hover:text-red-600 text-lg ">Log In</li>
+          <li className="hover:text-red-600 text-lg text-wrap ">Account</li>
           </Link>
           <Link to={'/'} className='' >
           <li className="hover:text-red-600 text-lg ">Logout</li>
