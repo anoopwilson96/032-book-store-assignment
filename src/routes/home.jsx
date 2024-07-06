@@ -42,7 +42,7 @@ export default function Home() {
     {
     authors.map((author)=>(
 
-    <div key={author._id} className='mx-auto border border-red-600 rounded-3xl shadow-slate-400 p-5 flex flex-col  items-center text-wrap  max-w-2xl max-h-96' >
+    <div key={author._id} className='mx-auto border border-red-600 rounded-3xl shadow-slate-400 p-5 flex flex-col  items-center text-wrap  max-w-2xl h-auto' >
       <img className='h-12 rounded-full' src={author.image} alt="" />
       <Link to={`/authors/${author._id}`}><h3 className='mt-5 mb-5 text-2xl p-1 font-semibold'>{author.authorName}</h3> </Link>
       <span className='text-lg'>{author.details}</span>
