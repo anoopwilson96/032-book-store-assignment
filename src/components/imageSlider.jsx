@@ -18,8 +18,8 @@ export default function ImageSlider() {
   return (
     <>
     
-    <div className=' mt-5  mx-auto flex flex-row justify-center'>
-      <SimpleImageSlider className='static object-cover'
+    <div className=' mt-5  mx-auto flex flex-row justify-center relative'>
+      <SimpleImageSlider className=' object-cover'
         width={'100%'}
         height={504}
         images={images}
@@ -28,7 +28,7 @@ export default function ImageSlider() {
         style={{opacity: 0.50}}
       />
 
-   <div className=' p-2 text-red-800 absolute top-1/2  left-0 right-0'>
+   <div className=' p-2 text-red-800 absolute bottom-0 top-40 left-0 right-0'>
       <div className="offAd flex flex-col justify-center items-center">
       <h2 className=' font-bold text-4xl'>Reading week sale is on</h2>
       <h3 className='text-6xl font-extrabold text-black'>Get Flat 20% OFF</h3>
