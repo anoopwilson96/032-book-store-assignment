@@ -28,8 +28,6 @@ export default function Header() {
 
 
 
-
-
         <div className='p-5 flex flex-row align-middle justify-evenly max-w-full mx-auto bg-[#fdbfbfeb]'>
           <div className=' hover:text-red-600 text-lg'>
             <Link>
@@ -56,7 +54,7 @@ export default function Header() {
           </ul>
 
           <div>
-            <Link className='relative'>
+            <Link to={'/cart'} className='relative'>
               <h3 className=" hover:text-red-600 text-lg ">
                 <i className=" fa-solid fa-cart-shopping"></i>
                 <span className=' absolute bottom-4 left-3 bg-red-400 text-black text-sm px-1.5 py-0 rounded-full border'>1</span>

@@ -28,7 +28,7 @@ export default function ImageSlider() {
         style={{opacity: 0.50}}
       />
 
-   <div className=' p-2 text-red-800 absolute bottom-0 top-40 left-0 right-0'>
+   <div className=' p-2 text-red-800 absolute bottom-0 top-40 left-0 right-0 h-10'>
       <div className="offAd flex flex-col justify-center items-center">
       <h2 className=' font-bold text-4xl'>Reading week sale is on</h2>
       <h3 className='text-6xl font-extrabold text-black'>Get Flat 20% OFF</h3>

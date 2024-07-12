@@ -13,6 +13,7 @@ import Books,{ loader as booksLoader } from './routes/products/books.jsx';
 import Book, {loader as bookLoader} from './routes/products/book.jsx';
 import Author,{loader as authorLoader} from './routes/products/author.jsx';
 import Login from './routes/login.jsx';
+import Cart from './routes/products/cart.jsx';
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
         path: '/login',
         element:<Login/>,
         
+      },
+      {
+        path: '/cart',
+        element: <Cart/>
       }
 
     ]
