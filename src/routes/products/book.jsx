@@ -31,7 +31,7 @@ export default function Book() {
       <div className='flex flex-col gap-5'>
            <h3 className='mt-5  text-2xl font-semibold'>{book.bookName}</h3>
            <h3 className=' mb-2 text-lg '>{book.bookAuthor}</h3>
-           <span className='text-lg'> Price: ${book.price}</span>
+           <span className='text-lg'> Price: ₹ {book.price}</span>
 
           <span className='text-lg'>{book.description}</span>
       </div>

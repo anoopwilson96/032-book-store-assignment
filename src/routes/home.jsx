@@ -37,7 +37,7 @@ export default function Home() {
 </div>
 
 
-<div className='grid grid-cols-1  gap-5  justify-center items-center mx-auto '>
+<div className='grid grid-cols-1 p-2 gap-5  justify-center items-center mx-auto '>
 
     {
     authors.map((author)=>(
@@ -63,7 +63,7 @@ export default function Home() {
 </div>
 
   
-<div className='grid grid-cols-2 md:grid-cols-3 gap-5 mx-auto  '>
+<div className='grid grid-cols-2 p-2 md:grid-cols-3 gap-5 mx-auto  '>
   {slicedBooks.map((popularBook)=>(
     <div key={popularBook._id} className='flex justify-center '>
      <div className=' border border-red-600 rounded-3xl shadow-slate-400 p-5 flex flex-col items-center justify-center text-wrap max-w-56' >
@@ -73,7 +73,7 @@ export default function Home() {
         <h3 className='mt-5  text-2xl font-semibold'>{popularBook.bookName}</h3> </Link>
         
         <h3 className=' mb-2 text-lg text-blue-800 '>{popularBook.bookAuthor}</h3>
-        <span className='text-lg'> Price: $ {popularBook.price} </span>
+        <span className='text-lg'> Price: ₹ {popularBook.price} </span>
         <div className='flex flex-col'>
           <button className=' mt-3 mb-2 bg-red-500 text-white px-2 rounded-md'>Add to Cart</button>
           <button className=' mt-3 mb-2 bg-slate-400  text-white px-2 rounded-md'>Mark ❤️️</button>

@@ -28,13 +28,17 @@ const [signupPassword, setSignupPassword] = useState('');
 
     axios.post(`${import.meta.env.VITE_API_URL}/users`, data)
     .then((response) => {
-      console.log('Signed up successfully:', response.data); 
+     // console.log('Signed up successfully:', response.data) 
+      navigate('/login')
       alert('Signed up successfully. Please LOGIN to continue')
     })
     .catch((error) => {
-      console.error('Error signing up:', error);
+      console.error('Error signing up:', error)
+      alert('Error: Try again')
+
     });
     
+
   }
 //declaration to get Login data
 const [loginEmail, setLoginEmail] = useState('');
@@ -50,17 +54,19 @@ function handleLogin(event) {
     password: loginPassword,
   }
 
-  axios.post(`${import.meta.env.VITE_API_URL}/users`, data, {withCredentials:true})
+  axios.post(`${import.meta.env.VITE_API_URL}/auth/login`, data, {withCredentials:true})
   //don't forget to add {withCredentials:true} so that token is exchanged to browser
   // add cors()on Back End
   .then((response) => {
-    console.log('Signed up successfully:', response.data); 
+    // console.log('Signed up successfully:', response.data) 
+    alert('Signed In: Enjoy Shopping')
     navigate('/')
-    alert('Signed up successfully: Please Login to continue')
     
   })
   .catch((error) => {
     console.error('Error signing up:', error);
+    alert('Password Invalid')
+
   });
   
 }

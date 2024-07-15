@@ -10,16 +10,16 @@ export default function Header() {
 
   return (
     <>
-      <header>
+<header>
        
-        <section className="headerOne">
+<section className="headerOne ">
 <Link to={'/'}>
 <img className="  max-h-48 mx-auto" src="../logo.png" alt="" />
 </Link>
 
 </section>
-<section className="headerTwo mt-0 mb-10">
-<div className="searchBar  flex flex-row justify-center ">
+<section className="headerTwo mt-0 py-8 bg-[#fdbfbfeb] ">
+<div className="searchBar  flex flex-row justify-center">
 <input type="text" className="border border-red-600  w-5/12 outline-none p-1" placeholder="Search by authors,book name,language & categories " />
 <button className="bg-red-600 px-2"><span className="material-symbols-outlined  text-white  text-lg">search</span>
 </button>
@@ -46,7 +46,7 @@ export default function Header() {
               <li className="hover:text-red-600 text-lg ">Authors</li>
             </Link>
             <Link to={'/login'} className='' >
-              <li className="hover:text-red-600 text-lg text-wrap ">Account</li>
+              <li className="hover:text-red-600 text-lg text-wrap ">Login</li>
             </Link>
             <Link to={'/'} className='' >
               <li className="hover:text-red-600 text-lg ">Logout</li>

@@ -40,7 +40,7 @@ export default function Author() {
         </Link>
         
         <h3 className=' mb-2 text-lg text-blue-800 '>{book.bookAuthor}</h3>
-        <span className='text-lg'> Price: $ {book.price} </span>
+        <span className='text-lg'> Price:₹ {book.price} </span>
         <div className='flex flex-col'>
           <button className=' mt-3 mb-2 bg-red-500 text-white px-2 rounded-md'>Add to Cart</button>
           <button className=' mt-3 mb-2 bg-slate-400  text-white px-2 rounded-md'>Mark ❤️️</button>
