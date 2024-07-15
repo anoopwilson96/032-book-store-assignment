@@ -1,7 +1,31 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Outlet, Link } from "react-router-dom";
 
 export default function Header() {
+// to work on Login/logout button and for REDUX
+
+
+
+
+
+
+// CODE FOR LOGIN & LOGOUT STATUS ON TOP AND REDUX
+//useEffect is used because we need it to load after page is loaded
+//if we needed to load first(before loading page) we could have used useLoaderData()
+
+useEffect(()=>{
+  axios.get(`${import.meta.env.VITE_API_URL}/auth/verify`,{withCredentials:true})
+  .then(response =>{
+    console.log(response)
+  })
+  .catch(error=>{
+    console.log('User not signed in')
+  })
+})
+
+
+// CODE FOR NAVIGATION BAR RESPONSIVENESS
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State to track menu visibility
 
   const toggleMenu = () => {
@@ -62,7 +86,7 @@ export default function Header() {
             </Link>
           </div>
         </div>
-      </header>
+</header>
     </>
   );
 }
