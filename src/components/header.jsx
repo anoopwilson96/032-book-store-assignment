@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { Outlet, Link } from "react-router-dom";
 
 export default function Header() {
-// to work on Login/logout button and for REDUX
-
+// to work on Login/logout button and for REDUX.
+//when page is loaded, loggedIn is false
+const [loggedIn,setLoggedIn]= useState(false)
 
 
 
@@ -18,6 +19,8 @@ useEffect(()=>{
   axios.get(`${import.meta.env.VITE_API_URL}/auth/verify`,{withCredentials:true})
   .then(response =>{
     console.log(response)
+    setLoggedIn(true)  //now if user is logged in, it will setLoggedIn as true 
+    //and at bottom conditional rendering is used to show either LOGIN or LOGOUT
   })
   .catch(error=>{
     console.log('User not signed in')
@@ -69,12 +72,16 @@ useEffect(()=>{
             <Link to={'/authors'} className='' >
               <li className="hover:text-red-600 text-lg ">Authors</li>
             </Link>
-            <Link to={'/login'} className='' >
+{/* conditional rendering is used to determine to show LOGOUT or LOGIN. if setLoggedIn is true, it will show LOGIN
+or else LOGOUT */}
+            {
+              loggedIn? (<Link to={'/logout'}>
+                <li className="hover:text-red-600 text-lg ">Logout</li>
+              </Link>):(<Link to={'/login'}>
               <li className="hover:text-red-600 text-lg text-wrap ">Login</li>
-            </Link>
-            <Link to={'/'} className='' >
-              <li className="hover:text-red-600 text-lg ">Logout</li>
-            </Link>
+             </Link>)
+            }
+
           </ul>
 
           <div>
