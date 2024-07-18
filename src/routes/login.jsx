@@ -1,11 +1,16 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { setUserLoggedIn } from '../features/login/loginSlice';
 
 export default function Login(props) {
 // navigate hook to successfully navigate page to home path after successful login
-
+//code for useNavigate() to navigate to other page
 const navigate = useNavigate()
+// code for redux to change state value of UserLoggedIn by useDispatch()
+//so that it will show real Login or Logout status on header
+const dispatch = useDispatch()
 
 // //Data declarations for Sign Up function
 
@@ -29,8 +34,9 @@ const [signupPassword, setSignupPassword] = useState('');
     axios.post(`${import.meta.env.VITE_API_URL}/users`, data)
     .then((response) => {
      // console.log('Signed up successfully:', response.data) 
-      navigate('/login')
-      alert('Signed up successfully. Please LOGIN to continue')
+      navigate('/')
+      alert('Signed up successfully. Enjoy shopping')
+      dispatch(setUserLoggedIn(true))
     })
     .catch((error) => {
       console.error('Error signing up:', error)
@@ -60,6 +66,7 @@ function handleLogin(event) {
   .then((response) => {
     // console.log('Signed up successfully:', response.data) 
     alert('Signed In: Enjoy Shopping')
+    dispatch(setUserLoggedIn(true))
     navigate('/')
     
   })
