@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const loginSlice = createSlice({
   name: 'login',
   initialState: {  
-    userLoggedIn: false //indicates first value of data.Here its user is LoggedOut so useLoggedIn : false
+    userLoggedIn: false //indicates first value of data.Here its user is LoggedOut so userLoggedIn : false
   },
 
   reducers: {

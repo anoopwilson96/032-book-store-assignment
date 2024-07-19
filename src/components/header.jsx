@@ -6,13 +6,13 @@ import { setUserLoggedIn } from '../features/login/loginSlice';
 
 export default function Header() {
 //codes of REDUX (setLoggedIn used in below useEffect()hook will replace by Redux global state)
-//1st useSelector is hook in redux that help to get or select data 
+//1st useSelector is hook in redux that help to get or select data from Slice and reducer to components
 const userLoggedIn = useSelector(state =>
   state.login.userLoggedIn)
 //useSelector will take function state and from state > from login(alias loginSlice) our needed data userLoggedIn is selected
 //(state->login->userLoggedIn)
 //useSelector select the data from Redux store and loginSlice
-// 2nd useDispatch() hook of redux will call Reducer 
+// 2nd useDispatch() hook of redux will  send Action (action.payload) that changes the State. Eg here its send action that changes userLoggedIn(true or false)
 const dispatch = useDispatch()
 // and give data(new State) (logged in or not from useEffect()/old local state request )
 //the userLoggedIn Global State of redux will replace loggedIn and does conditional rendering

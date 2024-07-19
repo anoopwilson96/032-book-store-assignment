@@ -7,4 +7,4 @@ export default configureStore({
   reducer: { //add reducer to this 
         login: loginReducer
   }
-})
+}) 

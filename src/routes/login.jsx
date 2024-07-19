@@ -18,7 +18,7 @@ const [signupName, setSignupName] = useState('');
 const [signupEmail, setSignupEmail] = useState('');
 const [signupPassword, setSignupPassword] = useState('');
 
-//   // function to handle Sign Up
+// function to handle Sign Up
 
   function handleSignup(event) {
     
@@ -33,10 +33,10 @@ const [signupPassword, setSignupPassword] = useState('');
 
     axios.post(`${import.meta.env.VITE_API_URL}/users`, data)
     .then((response) => {
-     // console.log('Signed up successfully:', response.data) 
+     console.log('Signed up successfully') 
       navigate('/')
-      alert('Signed up successfully. Enjoy shopping')
-      dispatch(setUserLoggedIn(true))
+      alert('Account created, Kindly Login now ')
+
     })
     .catch((error) => {
       console.error('Error signing up:', error)
@@ -64,8 +64,7 @@ function handleLogin(event) {
   //don't forget to add {withCredentials:true} so that token is exchanged to browser
   // add cors()on Back End
   .then((response) => {
-    // console.log('Signed up successfully:', response.data) 
-    alert('Signed In: Enjoy Shopping')
+    console.log('Signed up successfully') 
     dispatch(setUserLoggedIn(true))
     navigate('/')
     
