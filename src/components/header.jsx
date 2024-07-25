@@ -101,11 +101,11 @@ or else LOGOUT */}
           </ul>
 
           <div>
-          {/* className='relative' */}
-            <Link to={'/cart'} > 
+
+            <Link  to={'/cart'} className='relative' > 
               <h3 className=" hover:text-red-600 text-lg ">
                 <i className=" fa-solid fa-cart-shopping"></i>
-                {/* <span className=' absolute bottom-4 left-3 bg-red-400 text-black text-sm px-1.5 py-0 rounded-full border'>1</span> */}
+                <span className=' absolute bottom-4 left-3 bg-red-400 text-black text-sm px-1.5 py-0 rounded-full border'>1</span>
               </h3>
             </Link>
           </div>
